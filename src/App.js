@@ -2,20 +2,20 @@ import Card from "./components/Card";
 import CartDrawer from "./components/CartDrawer";
 import Header from "./components/Header";
 
-const arr = [
+const dataPerfume = [
 	{
 		title: "Limited-Edition Eau de Parfum Spray",
-    img: '/img/perfume/1.png',
+		img: "/img/perfume/1.png",
 		price: 200,
 	},
 	{
 		title: "Eau de Toilette Purse Spray",
-    img: '/img/perfume/2.png',
+		img: "/img/perfume/2.png",
 		price: 150,
 	},
 	{
 		title: "1.7 fl. oz. Eau de Parfum Body Oil Set",
-    img: '/img/perfume/3.png',
+		img: "/img/perfume/3.png",
 		price: 300,
 	},
 ];
@@ -34,12 +34,13 @@ function App() {
 					</div>
 				</div>
 				<div className="d-flex">
-          {/* <Card title="Women's perfume Chanel" price="200"/>  */}
-					{
-            arr.map((obj) => (
-              <Card title={obj.title} price={obj.price} img={obj.img}/>
-            ))
-          }
+					{dataPerfume.map((obj) => (
+						<Card
+							title={obj.title}
+							price={obj.price}
+							img={obj.img}
+						/>
+					))}
 				</div>
 			</div>
 		</div>
