@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card() {
+function Card(props) {
 	return (
 		<div className="card">
 			<div className="favorite">
@@ -9,14 +9,14 @@ function Card() {
 			<img
 				width={133}
 				height={112}
-				src="/img/perfume/1.png"
+				src={props.img}
 				alt="Perfume"
 			/>
-			<h5>Women's perfume Chanel</h5>
+			<h5>{props.title}</h5>
 			<div className="d-flex justify-between align-center">
 				<div className="d-flex flex-column ">
 					<span>Price:</span>
-					<b>99 eur</b>
+					<b>{props.price} eur</b>
 				</div>
 				<button className="button">
 					<img
