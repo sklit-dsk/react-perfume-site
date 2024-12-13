@@ -39,6 +39,8 @@ function App() {
 							title={obj.title}
 							price={obj.price}
 							img={obj.img}
+							onFavorite={() => console.log("Added to Favorites")}
+							onPlus={() => console.log("Added to Cart")}
 						/>
 					))}
 				</div>
