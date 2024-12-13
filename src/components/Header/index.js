@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Header.module.scss";
 
-function Header() {
+function Header(props) {
 	return (
 		<header
 			style={styles}
@@ -20,7 +20,7 @@ function Header() {
 				</div>
 			</div>
 			<ul className="d-flex">
-				<li className="mr-30">
+				<li className="mr-30 cu-p" onClick={props.onClickCart}>
 					<img
 						width={18}
 						height={18}

@@ -1,6 +1,6 @@
-function CartDrawer() {
+function CartDrawer({onClose, items = []}) {
 	return (
-		<div style={{ display: "none" }} className="overlay">
+		<div className="overlay">
 			<div className="drawer">
 				<h2 className="d-flex mb-30 justify-between ">
 					Cart{" "}
@@ -8,60 +8,29 @@ function CartDrawer() {
 						className="removeBtn cu-p"
 						src="/img/btn-remove.svg"
 						alt="Remove button"
+						onClick={onClose}
 					/>
 				</h2>
 				<div className="items">
-					<div className="cartItem d-flex align-center mb-20">
-						<div
-							style={{
-								backgroundImage: "url(/img/perfume/1.png)",
-							}}
-							className="cartItemImg"
-						></div>
-						<div className="mr-20 flex">
-							<p className="mb-5">Women's perfume Chanel</p>
-							<b>50 eur</b>
+					{items.map((obj) => (
+						<div className="cartItem d-flex align-center mb-20">
+							<div
+								style={{
+									backgroundImage: `url(${obj.img})`,
+								}}
+								className="cartItemImg"
+							></div>
+							<div className="mr-20 flex">
+								<p className="mb-5">{obj.title}</p>
+								<b>{obj.price} eur</b>
+							</div>
+							<img
+								className="removeBtn"
+								src="/img/btn-remove.svg"
+								alt="Remove button"
+							/>
 						</div>
-						<img
-							className="removeBtn"
-							src="/img/btn-remove.svg"
-							alt="Remove button"
-						/>
-					</div>
-					<div className="cartItem d-flex align-center mb-20">
-						<div
-							style={{
-								backgroundImage: "url(/img/perfume/1.png)",
-							}}
-							className="cartItemImg"
-						></div>
-						<div className="mr-20 flex">
-							<p className="mb-5">Women's perfume Chanel</p>
-							<b>50 eur</b>
-						</div>
-						<img
-							className="removeBtn"
-							src="/img/btn-remove.svg"
-							alt="Remove button"
-						/>
-					</div>
-					<div className="cartItem d-flex align-center mb-20">
-						<div
-							style={{
-								backgroundImage: "url(/img/perfume/1.png)",
-							}}
-							className="cartItemImg"
-						></div>
-						<div className="mr-20 flex">
-							<p className="mb-5">Women's perfume Chanel</p>
-							<b>50 eur</b>
-						</div>
-						<img
-							className="removeBtn"
-							src="/img/btn-remove.svg"
-							alt="Remove button"
-						/>
-					</div>
+					))}
 				</div>
 				<div className="cartTotalBlock">
 					<ul>

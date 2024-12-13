@@ -1,30 +1,31 @@
+import { React, useEffect, useState } from "react";
 import Card from "./components/Card";
 import CartDrawer from "./components/CartDrawer";
 import Header from "./components/Header";
 
-const dataPerfume = [
-	{
-		title: "Limited-Edition Eau de Parfum Spray",
-		img: "/img/perfume/1.png",
-		price: 200,
-	},
-	{
-		title: "Eau de Toilette Purse Spray",
-		img: "/img/perfume/2.png",
-		price: 150,
-	},
-	{
-		title: "1.7 fl. oz. Eau de Parfum Body Oil Set",
-		img: "/img/perfume/3.png",
-		price: 300,
-	},
-];
-
 function App() {
+	const [items, setItems] = useState([]);
+	const [cartItems, setCartItems] = useState([]);
+	const [cartOpened, setCartOpened] = useState(false);
+
+	useEffect(() =>{
+		fetch("https://675c879bfe09df667f6423cf.mockapi.io/items")
+			.then((res) => {
+				return res.json();
+			})
+			.then((json) => {
+				setItems(json);
+			});
+	}, []);
+
+	const onAddToCart = (obj) => {
+		setCartItems(prev => [...prev, obj]);
+	};
+
 	return (
 		<div className="wrapper clear">
-			<CartDrawer />
-			<Header />
+			{cartOpened && <CartDrawer items={cartItems} onClose={() => setCartOpened(false)} />}
+			<Header onClickCart={() => setCartOpened(true)} />
 			<div className="content p-40">
 				<div className="d-flex align-center mb-40 justify-between">
 					<h1>All perfume</h1>
@@ -33,14 +34,14 @@ function App() {
 						<input type="text" placeholder="Search..." />
 					</div>
 				</div>
-				<div className="d-flex">
-					{dataPerfume.map((obj) => (
+				<div className="d-flex flex-wrap">
+					{items.map((item) => (
 						<Card
-							title={obj.title}
-							price={obj.price}
-							img={obj.img}
+							title={item.title}
+							price={item.price}
+							img={item.img}
 							onFavorite={() => console.log("Added to Favorites")}
-							onPlus={() => console.log("Added to Cart")}
+							onPlus={obj => onAddToCart(obj)}
 						/>
 					))}
 				</div>
