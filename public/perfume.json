@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Limited-Edition Eau de Parfum Spray",
+        "img": "/img/perfume/1.png",
+		"price": 200
+	},
+	{
+		"title": "Eau de Toilette Purse Spray",
+        "img": "/img/perfume/2.png",
+		"price": 150
+	},
+	{
+		"title": "1.7 fl. oz. Eau de Parfum Body Oil Set",
+        "img": "/img/perfume/3.png",
+		"price": 300
+	},
+    {
+		"title": "Marqueens Beauty Vulva Perfume - Eau de Perfume",
+        "img": "/img/perfume/4.png",
+		"price": 64
+	},
+    {
+		"title": "Marc Jacobs Perfect Women 3.3 oz EDP Spray",
+        "img": "/img/perfume/5.png",
+		"price": 80
+	},
+    {
+		"title": "Versace Crystal Noir by Versace for Women - 3 Fl Oz EDT Spray",
+        "img": "/img/perfume/6.png",
+		"price": 50
+	},
+    {
+		"title": "Victoria's Secret Bare Vanilla Body Mist, Body Spray",
+        "img": "/img/perfume/7.png",
+		"price": 75
+	},
+    {
+		"title": "Michael Kors Wonderlust by Michael Kors",
+        "img": "/img/perfume/8.png",
+		"price": 213
+    }
+]
