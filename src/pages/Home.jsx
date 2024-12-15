@@ -5,9 +5,9 @@ function Home({
     searchValue,
     setSearchValue,
     handleSort,
-    favorites,
     onAddToFavorites,
     onAddToCart,
+    cartItems,
 }) {
     return (
         <div className="content p-40">
@@ -34,6 +34,8 @@ function Home({
                             key={index}
                             onFavorite={(obj) => onAddToFavorites(obj)}
                             onPlus={(obj) => onAddToCart(obj)}
+                            added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
+                            loading
                             {...item}
                         />
                     ))}
