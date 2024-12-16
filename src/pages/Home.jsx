@@ -1,4 +1,4 @@
-import Card from '../components/Card';
+import Card from '../components/Card';;
 
 function Home({
     items,
@@ -7,8 +7,26 @@ function Home({
     handleSort,
     onAddToFavorites,
     onAddToCart,
-    cartItems,
+    isReady,
 }) {
+    
+    
+    const renderItems = () => {
+        const filteredItems = items.filter((item) =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase()),
+        );
+        return (isReady ? [...Array(12)] : filteredItems).map((item, index) => (
+            <Card
+                key={index}
+                onFavorite={(obj) => onAddToFavorites(obj)}
+                onPlus={(obj) => onAddToCart(obj)}
+                loading={isReady}
+                {...item}
+            />
+        ));
+    };
+
+    
     return (
         <div className="content p-40">
             <div className="d-flex align-center mb-40 justify-between">
@@ -26,20 +44,7 @@ function Home({
                     <input onChange={handleSort} value={searchValue} placeholder="Search..." />
                 </div>
             </div>
-            <div className="d-flex flex-wrap">
-                {items
-                    .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-                    .map((item, index) => (
-                        <Card
-                            key={index}
-                            onFavorite={(obj) => onAddToFavorites(obj)}
-                            onPlus={(obj) => onAddToCart(obj)}
-                            added={cartItems.some(obj => Number(obj.id) === Number(item.id))}
-                            loading
-                            {...item}
-                        />
-                    ))}
-            </div>
+            <div className="d-flex flex-wrap">{renderItems()}</div>
         </div>
     );
 }
