@@ -1,15 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Info from './Info';
-import AppContext from '../context';
 import axios from 'axios';
+import { useCart } from '../hooks/useCart';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function CartDrawer({ onClose, onRemove, items = [] }) {
-    const { cartItems, setCartItems } = useContext(AppContext);
+    const {cartItems, setCartItems, totalPrice} = useCart();
     const [isComplete, setIsComplete] = useState(null);
     const [orderId, setOrderId] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
+    
     const handleClickComplete = async () => {
         try {
             setIsLoading(true);
@@ -48,7 +49,7 @@ function CartDrawer({ onClose, onRemove, items = [] }) {
                 </h2>
                 {items.length > 0 ? (
                     <div className="d-flex flex-column flex">
-                        <div className="items">
+                        <div className="items flex">
                             {items.map((obj) => (
                                 <div key={obj.id} className="cartItem d-flex align-center mb-20">
                                     <div
@@ -75,12 +76,12 @@ function CartDrawer({ onClose, onRemove, items = [] }) {
                                 <li>
                                     <span>Total:</span>
                                     <div></div>
-                                    <b>150 eur</b>
+                                    <b>{totalPrice} eur</b>
                                 </li>
                                 <li>
                                     <span>Fee 5%:</span>
                                     <div></div>
-                                    <b>142,5 eur</b>
+                                    <b>{Math.round(totalPrice * 0.05)} eur</b>
                                 </li>
                             </ul>
                             <button
