@@ -42,7 +42,7 @@ function CartDrawer({ onClose, onRemove, items = [] }) {
                     Cart{' '}
                     <img
                         className="removeBtn cu-p"
-                        src="img/btn-remove.svg"
+                        src="/img/btn-remove.svg"
                         alt="Remove button"
                         onClick={onClose}
                     />
@@ -65,7 +65,7 @@ function CartDrawer({ onClose, onRemove, items = [] }) {
                                     <img
                                         onClick={() => onRemove(obj.id)}
                                         className="removeBtn"
-                                        src="img/btn-remove.svg"
+                                        src="/img/btn-remove.svg"
                                         alt="Remove button"
                                     />
                                 </div>
@@ -89,7 +89,7 @@ function CartDrawer({ onClose, onRemove, items = [] }) {
                                 onClick={handleClickComplete}
                                 className="greenButton"
                             >
-                                Place an order <img src="img/arrow.svg" alt="Arrow" />
+                                Place an order <img src="/img/arrow.svg" alt="Arrow" />
                             </button>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ function CartDrawer({ onClose, onRemove, items = [] }) {
                                 ? `Your order #${orderId} has been successfully placed.`
                                 : 'Add at least one perfume to complete your order.'
                         }
-                        img={isComplete ? 'img/complete-order.jpg' : 'img/empty-cart.jpg'}
+                        img={isComplete ? '/img/complete-order.jpg' : '/img/empty-cart.jpg'}
                     />
                 )}
             </div>
