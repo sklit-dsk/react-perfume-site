@@ -1,11 +1,18 @@
-Perfume online-store - **React perfume store**
+# 🌸 Perfume Online Store - *React Perfume Store*
 
+Welcome to **Perfume Online Store** — a modern and responsive web application for showcasing and exploring perfume collections. Built with **ReactJS** and best development practices for an enhanced user experience.
 
-**Stack:**
+🚀 **Live Demo:** [Perfume Store on Railway](https://react-perfume-store-production.up.railway.app/)
 
-- ReactJS + hooks
-- React Router
-- Axios
-- SCSS
-- React Context
-- React Skeleton
+---
+
+## 🛠️ **Tech Stack**
+
+This project was built using the following technologies:
+
+- ⚛️ **ReactJS** + Hooks  
+- 🛣️ **React Router** — for client-side routing  
+- 📡 **Axios** — for API requests  
+- 🎨 **SCSS** — for styling with modular components  
+- 🗄️ **React Context** — for state management  
+- 🦴 **React Skeleton** — for content loading placeholders  
